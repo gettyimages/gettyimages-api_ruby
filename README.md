@@ -6,6 +6,11 @@ Seamlessly integrate Getty Images' expansive digital content, powerful search te
 - Get image metadata.
 - Download files using your Getty Images products (e.g., Editorial subscriptions, Easy Access, Thinkstock Subscriptions, and Image Packs).
 
+## Requirements
+
+## Building GEM Package
+-- Source Location: connect_sdk_ruby / ConnectSDK / lib /
+
 ## Installation
 
 Add this line to your application's Gemfile:
