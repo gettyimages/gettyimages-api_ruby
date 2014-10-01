@@ -1,5 +1,4 @@
 # Getty Images Connect SDK 
-
 Seamlessly integrate Getty Images' expansive digital content, powerful search technology, and rich metadata into your publishing tools, products and services!
 
 - Search for images from our extensive creative and editorial catalogs.
@@ -7,9 +6,13 @@ Seamlessly integrate Getty Images' expansive digital content, powerful search te
 - Download files using your Getty Images products (e.g., Editorial subscriptions, Easy Access, Thinkstock Subscriptions, and Image Packs).
 
 ## Requirements
+Ruby version > 1.9.3
 
 ## Building GEM Package
--- Source Location: connect_sdk_ruby / ConnectSDK / lib /
+The following describes how to create the local gem package for ConnectSDK. The package will be created in the pkg folder in the source code location. 
+
+	Source Code Location: connect_sdk_ruby/ConnectSDK/lib/
+	$ bundle exec rake release
 
 ## Installation
 
@@ -25,7 +28,10 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install ConnectSDK
+**[NOTE: Currently not published to [rubygems.org](https://rubygems.org), install from local build package.]**
+
+	Package: connect_sdk_ruby/ConnectSDK/lib/pkg
+    $ gem install ConnectSDK-0.0.1.gem
 
 ## Usage
 ```ruby
