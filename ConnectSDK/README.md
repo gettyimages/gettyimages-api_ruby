@@ -1,5 +1,3 @@
-# Getty Images Connect SDK
-
 ## Requirements
 - Ruby version > 1.9.3
 - [Bundler](http://bundler.io) version > 1.7.3
