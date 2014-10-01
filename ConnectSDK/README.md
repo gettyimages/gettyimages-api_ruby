@@ -6,4 +6,4 @@
 The following describes how to create the local gem package for Connect SDK. The package will be created in the pkg folder in the source code location. 
 
 	$ cd connect_sdk_ruby/ConnectSDK
-	$ bundle exec rake release
+	$ bundle exec rake build

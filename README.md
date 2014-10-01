@@ -9,19 +9,12 @@ Seamlessly integrate Getty Images' expansive digital content, powerful search te
 - Ruby version > 1.9.3
 - [Bundler](http://bundler.io) version > 1.7.3
 
-## Building Gem Package
+## Building/Installation Gem Package
+**[NOTE: Currently not published to [rubygems.org](https://rubygems.org), install from local build package.]**
 The following describes how to create the local gem package for ConnectSDK. The package will be created in the pkg folder in the source code location. 
 
 	$ cd connect_sdk_ruby/ConnectSDK
-	$ bundle exec rake release
-
-## Installation
-**[NOTE: Currently not published to [rubygems.org](https://rubygems.org), install from local build package.]**
-
-Install it yourself as:
-
-	$ cd ConnectSDK/pkg
-    $ gem install ConnectSDK-0.0.1.gem
+	$ bundle exec rake install
 
 ## Usage
 ```ruby
