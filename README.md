@@ -11,6 +11,7 @@ Seamlessly integrate Getty Images' expansive digital content, powerful search te
 
 ## Building/Installation Gem Package
 **[NOTE: Currently not published to [rubygems.org](https://rubygems.org), install from local build package.]**
+
 The following describes how to create the local gem package for ConnectSDK. The package will be created in the pkg folder in the source code location. 
 
 	$ cd connect_sdk_ruby/ConnectSDK
