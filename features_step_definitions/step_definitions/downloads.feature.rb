@@ -1,22 +1,23 @@
 require 'test/unit'
-require "ConnectSDK"
+require 'ConnectSDK'
+require_relative 'credentials'
 
 $download_scenario_context = Hash.new
 
 Given(/^I have an apikey$/) do
-	$download_scenario_context["api_key"] = "3z7q8fyw8ach5kr3mg35dkqz"	
+	$download_scenario_context["api_key"] = Connect_Mashery_Credentials::API_KEY
 end
 
 Given(/^an apisecret$/) do
-	$download_scenario_context["api_secret"] = "kYksrEH4Vyn6txeT5tFDJjxsdVYqS6usNDupa3aYWpwkr"	
+	$download_scenario_context["api_secret"] = Connect_Mashery_Credentials::API_SECRET	
 end
 
 Given(/^a username$/) do
-  	$download_scenario_context["username"] = "rod.santos@gettyimages.com"
+  	$download_scenario_context["username"] = Connect_Mashery_Credentials::USERNAME
 end
 
 Given(/^a password$/) do
-  	$download_scenario_context["password"] = "Fc7yejdTAIpfVBX"
+  	$download_scenario_context["password"] = Connect_Mashery_Credentials::PASSWORD
 end
 
 When(/^I request for any image to be downloaded$/) do

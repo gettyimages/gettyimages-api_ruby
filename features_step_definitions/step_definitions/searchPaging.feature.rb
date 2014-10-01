@@ -1,5 +1,6 @@
 require 'test/unit'
-require "ConnectSDK"
+require 'ConnectSDK'
+require_relative 'credentials'
 
 Given(/^I have an apikey$/) do
   pending # express the regexp above with the code you wish you had

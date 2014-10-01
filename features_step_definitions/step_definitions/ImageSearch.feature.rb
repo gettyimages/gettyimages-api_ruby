@@ -1,14 +1,15 @@
 require 'test/unit'
-require "ConnectSDK"
+require 'ConnectSDK'
+require_relative 'credentials'
 
 $scenario_context = Hash.new
 
 Given(/^I have an apikey$/) do
-	$scenario_context["api_key"] = "3z7q8fyw8ach5kr3mg35dkqz"	
+	$scenario_context["api_key"] = Connect_Mashery_Credentials::API_KEY
 end
 
 Given(/^an apisecret$/) do
-	$scenario_context["api_secret"] = "kYksrEH4Vyn6txeT5tFDJjxsdVYqS6usNDupa3aYWpwkr"
+	$scenario_context["api_secret"] = Connect_Mashery_Credentials::API_SECRET
 	$scenario_context["connectSdk"] = ConnectSdk.new($scenario_context["api_key"], $scenario_context["api_secret"])
 end
 

@@ -1,26 +1,27 @@
 require 'test/unit'
-require "ConnectSDK"
+require 'ConnectSDK'
+require_relative 'credentials'
 
 $authentication_scenario_context = Hash.new
 
 Given(/^I have an apikey$/) do
-  $authentication_scenario_context["api_key"] = "3z7q8fyw8ach5kr3mg35dkqz"	
+  $authentication_scenario_context["api_key"] = Connect_Mashery_Credentials::API_KEY
 end
 
 Given(/^an apisecret$/) do
-  $authentication_scenario_context["api_secret"] = "kYksrEH4Vyn6txeT5tFDJjxsdVYqS6usNDupa3aYWpwkr"	
+  $authentication_scenario_context["api_secret"] = Connect_Mashery_Credentials::API_SECRET
 end
 
 Given(/^a username$/) do
-  $authentication_scenario_context["username"] = "rod.santos@gettyimages.com"
+  $authentication_scenario_context["username"] = Connect_Mashery_Credentials::USERNAME
 end
 
 Given(/^a password$/) do
-  $authentication_scenario_context["password"] = "Fc7yejdTAIpfVBX"
+  $authentication_scenario_context["password"] = Connect_Mashery_Credentials::PASSWORD
 end
 
 When(/^I ask the sdk for an authentication token$/) do
-  	connectSDK = ConnectSdk.new(
+  connectSDK = ConnectSdk.new(
 			$authentication_scenario_context["api_key"], 
 			$authentication_scenario_context["api_secret"],
 			$authentication_scenario_context["username"],

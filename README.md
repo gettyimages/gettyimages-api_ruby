@@ -37,6 +37,14 @@ search_results["images"].each do | image |
 	puts "Id: #{image["id"]} Title: #{image["title"]}" 
 end
 ```
+
+## BDD Features
+	
+	$ bundle exec cucumber features\authentication.feature -r features_step_definitions\step_definitions\authentication.feature.rb
+	$ bundle exec cucumber features\downloads.feature -r features_step_definitions\step_definitions\downloads.feature.rb
+	$ bundle exec cucumber features\ImageSearch.feature -r features_step_definitions\step_definitions\ImageSearch.feature.rb
+	$ bundle exec cucumber features\images.feature -r features_step_definitions\step_definitions\images.feature.rb
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/ConnectSDK/fork )
