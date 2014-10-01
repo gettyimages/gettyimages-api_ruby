@@ -15,6 +15,7 @@ The following describes how to create the local gem package for ConnectSDK. The 
 	$ bundle exec rake release
 
 ## Installation
+**[NOTE: Currently not published to [rubygems.org](https://rubygems.org), install from local build package.]**
 
 Add this line to your application's Gemfile:
 
@@ -27,8 +28,6 @@ And then execute:
     $ bundle
 
 Or install it yourself as:
-
-**[NOTE: Currently not published to [rubygems.org](https://rubygems.org), install from local build package.]**
 
 	Package: connect_sdk_ruby/ConnectSDK/lib/pkg
     $ gem install ConnectSDK-0.0.1.gem
