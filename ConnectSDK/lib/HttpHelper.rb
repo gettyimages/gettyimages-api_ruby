@@ -1,10 +1,10 @@
 require "net/http"
 require "uri"
 require "json"
+require "rbconfig"
 
 class Connect_Api_Host
 	API_HOST = "connect.gettyimages.com"
-	# API_HOST = "gibson.candidate-gettyimages.com/Public"
 	API_BASE_URL = "https://#{API_HOST}"
 end
 
@@ -15,12 +15,10 @@ class HttpHelper
 		@access_token = access_token
 	end	
 
-	public
 	def get_uri(path)
 		return URI.parse "#{Connect_Api_Host::API_BASE_URL}#{path}"
 	end
 
-	public
 	def get(endpoint_path, query_params)
 		
 		uri = get_uri(endpoint_path)
@@ -34,7 +32,6 @@ class HttpHelper
 
 	end
 
-	public
 	def post(endpoint_path)
 
 		uri = get_uri endpoint_path	
@@ -43,6 +40,25 @@ class HttpHelper
 
 	end
 
+	private
+	def os
+		@os ||= (
+		host_os = RbConfig::CONFIG['host_os']
+		case host_os
+			when /mswin|msys|mingw|cygwin|bccwin|wince|emc/
+				:windows
+			when /darwin|mac os/
+				:macosx
+			when /linux/
+				:linux
+			when /solaris|bsd/
+				:unix
+			else
+				raise Error::WebDriverError, "unknown os: #{host_os.inspect}"
+			end)
+  	end
+
+	private
 	def send(connect_uri, connect_request, api_key, bearer_token = "")
 
 		# define HTTPS connection
@@ -51,8 +67,16 @@ class HttpHelper
 		https.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 		# define headers
+		# puts "(#{os} os_version; Ruby #{RUBY_VERSION})"
+		
+		connect_request["User-Agent"] = "ConnectSDK/1.0.0.1.Beta (#{os} ; Ruby #{RUBY_VERSION})"
 		connect_request["Api-Key"] = api_key
 		connect_request["Authorization"] = "Bearer #{bearer_token}" unless bearer_token.empty?
+
+		# connect_request.each_header do |header_name, header_value|
+ 	 	#	puts "#{header_name} : #{header_value}"
+		# end
+		# https.set_debug_output $stderr
 
 		# send request		
 		resp = https.request connect_request
