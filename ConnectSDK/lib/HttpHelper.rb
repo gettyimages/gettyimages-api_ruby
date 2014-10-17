@@ -1,7 +1,8 @@
-require "net/http"
-require "uri"
-require "json"
-require "rbconfig"
+require 'net/http'
+require 'uri'
+require 'json'
+require 'rbconfig'
+require_relative 'ConnectSDK/version'
 
 class Connect_Api_Host
 	API_HOST = "connect.gettyimages.com"
@@ -67,9 +68,7 @@ class HttpHelper
 		https.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 		# define headers
-		# puts "(#{os} os_version; Ruby #{RUBY_VERSION})"
-		
-		connect_request["User-Agent"] = "ConnectSDK/1.0.0.1.Beta (#{os} ; Ruby #{RUBY_VERSION})"
+		connect_request["User-Agent"] = "ConnectSDK/#{ConnectSDK::VERSION} (#{os} ; Ruby #{RUBY_VERSION})"
 		connect_request["Api-Key"] = api_key
 		connect_request["Authorization"] = "Bearer #{bearer_token}" unless bearer_token.empty?
 
@@ -78,16 +77,18 @@ class HttpHelper
 		# end
 		# https.set_debug_output $stderr
 
+		return connect_request["User-Agent"]
+=begin
 		# send request		
 		resp = https.request connect_request
 		# puts "HTTP RESPONSE: #{resp}" 
 
-		if !resp.is_a?(Net::HTTPSuccess)			
+		 if !resp.is_a?(Net::HTTPSuccess)			
 			raise "HTTP RESPONSE: #{resp}" 
 		end
 
 		return JSON.parse(resp.body)
-
+=end
 	end 
 
 end
