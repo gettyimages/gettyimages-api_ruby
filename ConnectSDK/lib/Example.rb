@@ -1,8 +1,8 @@
 require "pp"
 require_relative "ConnectSDK"
 
-api_key = "3z7q8fyw8ach5kr3mg35dkqz"
-api_secret = "kYksrEH4Vyn6txeT5tFDJjxsdVYqS6usNDupa3aYWpwkr"
+api_key = "api key"
+api_secret = "api secret"
 
 # Example of Connect SDK
 connectSdk 		= ConnectSdk.new(api_key, api_secret)
