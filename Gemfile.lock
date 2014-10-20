@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    ConnectSDK (0.0.1)
+    ConnectSDK (1.0.2.Beta)
     builder (3.2.2)
     cucumber (1.3.17)
       builder (>= 2.1.2)
@@ -20,6 +20,6 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  ConnectSDK
+  ConnectSDK (~> 1.0.1.Beta)
   cucumber (~> 1.3.17)
   json (~> 1.8.1)
