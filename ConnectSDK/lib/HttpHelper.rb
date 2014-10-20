@@ -72,13 +72,12 @@ class HttpHelper
 		connect_request["Api-Key"] = api_key
 		connect_request["Authorization"] = "Bearer #{bearer_token}" unless bearer_token.empty?
 
+		
 		# connect_request.each_header do |header_name, header_value|
  	 	#	puts "#{header_name} : #{header_value}"
 		# end
 		# https.set_debug_output $stderr
-
-		return connect_request["User-Agent"]
-=begin
+		
 		# send request		
 		resp = https.request connect_request
 		# puts "HTTP RESPONSE: #{resp}" 
@@ -88,7 +87,7 @@ class HttpHelper
 		end
 
 		return JSON.parse(resp.body)
-=end
+
 	end 
 
 end
