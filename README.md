@@ -1,4 +1,6 @@
 # Getty Images Connect SDK 
+[![Code Climate](https://codeclimate.com/github/gettyimages/gettyimages-api_ruby/badges/gpa.svg)](https://codeclimate.com/github/gettyimages/gettyimages-api_ruby)
+
 Seamlessly integrate Getty Images' expansive digital content, powerful search technology, and rich metadata into your publishing tools, products and services!
 
 - Search for images from our extensive creative and editorial catalogs.
