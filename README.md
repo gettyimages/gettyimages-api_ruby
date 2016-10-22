@@ -1,5 +1,8 @@
 # Getty Images Connect SDK 
-[![Code Climate](https://codeclimate.com/github/gettyimages/gettyimages-api_ruby/badges/gpa.svg)](https://codeclimate.com/github/gettyimages/gettyimages-api_ruby)
+
+# Deprecated
+
+**The SDK's have been deprecated and are no longer being maintained as of November 2016.**
 
 Seamlessly integrate Getty Images' expansive digital content, powerful search technology, and rich metadata into your publishing tools, products and services!
 
