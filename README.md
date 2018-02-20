@@ -1,12 +1,5 @@
 # Getty Images Connect SDK 
 
-# Deprecated
-
-As of November 2016, we will no longer be improving or maintaining the language-specific SDKs. The API is still alive and under active feature development. Current documentation can be found at [developers.gettyimages.com/api/docs/](http://developers.gettyimages.com/api/docs/).
-SDK source code remains open source, providing a technology example of interaction with the Getty Images API. We will no longer take pull requests for these repositories, but feel free to fork them for your own modifications.
----
-
-
 Seamlessly integrate Getty Images' expansive digital content, powerful search technology, and rich metadata into your publishing tools, products and services!
 
 - Search for images from our extensive creative and editorial catalogs.
@@ -52,11 +45,3 @@ end
 	$ bundle exec cucumber features\downloads.feature -r features_step_definitions\step_definitions\downloads.feature.rb
 	$ bundle exec cucumber features\ImageSearch.feature -r features_step_definitions\step_definitions\ImageSearch.feature.rb
 	$ bundle exec cucumber features\images.feature -r features_step_definitions\step_definitions\images.feature.rb
-
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/ConnectSDK/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
