@@ -5,7 +5,9 @@
 # for developers.
 
 require_relative "Credentials"
-require_relative "SearchRequest"
+require_relative "SearchImages"
+require_relative "SearchImagesCreative"
+require_relative "SearchImagesEditorial"
 require_relative "ImagesRequest"
 require_relative "DownloadRequest"
 
@@ -31,12 +33,21 @@ class ConnectSdk
 		return @credentials.get_access_token
 	end
 
-	# Create a search configuration that support image searching
-	# SearchRequest configured for a image search	
-	def search()
-		return SearchRequest.new(@credentials.client_key, @credentials.get_access_token)
+	# Search for both creative and editorial images
+	def search_images()
+		return SearchImages.new(@credentials.client_key, @credentials.get_access_token)
 	end
 
+	# Search for creative images
+	def search_images_creative()
+		return SearchImagesCreative.new(@credentials.client_key, @credentials.get_access_token)
+	end
+
+	# Search for editorial images
+	def search_images_editorial()
+		return SearchImagesEditorial.new(@credentials.client_key, @credentials.get_access_token)
+	end
+	
 	# Create a image details configuration that support image details 
 	# == Returns:
 	# ImagesRequest configured for a image details	

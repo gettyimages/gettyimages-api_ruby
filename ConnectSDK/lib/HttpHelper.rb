@@ -5,7 +5,7 @@ require 'rbconfig'
 require_relative 'ConnectSDK/version'
 
 class Connect_Api_Host
-	API_HOST = "connect.gettyimages.com"
+	API_HOST = "api.gettyimages.com"
 	API_BASE_URL = "https://#{API_HOST}"
 end
 
