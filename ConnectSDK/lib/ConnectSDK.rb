@@ -8,6 +8,9 @@ require_relative "Credentials"
 require_relative "SearchImages"
 require_relative "SearchImagesCreative"
 require_relative "SearchImagesEditorial"
+require_relative "SearchVideos"
+require_relative "SearchVideosCreative"
+require_relative "SearchVideosEditorial"
 require_relative "ImagesRequest"
 require_relative "DownloadRequest"
 
@@ -46,6 +49,21 @@ class ConnectSdk
 	# Search for editorial images
 	def search_images_editorial()
 		return SearchImagesEditorial.new(@credentials.client_key, @credentials.get_access_token)
+	end
+
+	#Search for both creative and editorial videos
+	def search_videos()
+		return SearchVideos.new(@credentials.client_key, @credentials.get_access_token)
+	end
+
+	#Search for creative videos
+	def search_videos_creative()
+		return SearchVideosCreative.new(@credentials.client_key, @credentials.get_access_token)
+	end
+
+	#Search for editorial videos
+	def search_videos_editorial()
+		return SearchVideosEditorial.new(@credentials.client_key, @credentials.get_access_token)
 	end
 	
 	# Create a image details configuration that support image details 
