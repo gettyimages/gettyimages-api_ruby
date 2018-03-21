@@ -33,9 +33,12 @@ class HttpHelper
 
 	end
 
-	def post(endpoint_path)
+	def post(endpoint_path, query_params)
 
-		uri = get_uri endpoint_path	
+		uri = get_uri(endpoint_path)
+		if !query_params.nil?
+			uri.query = URI.encode_www_form query_params
+		end	
 		req = Net::HTTP::Post.new uri.request_uri
 		return send uri, req, @api_key, @access_token
 

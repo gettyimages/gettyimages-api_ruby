@@ -11,6 +11,8 @@ require_relative "SearchImagesEditorial"
 require_relative "SearchVideos"
 require_relative "SearchVideosCreative"
 require_relative "SearchVideosEditorial"
+require_relative "DownloadImages"
+require_relative "DownloadVideos"
 require_relative "ImagesRequest"
 require_relative "DownloadRequest"
 
@@ -73,8 +75,14 @@ class ConnectSdk
 		return ImagesRequest.new(@credentials.client_key, @credentials.get_access_token)
 	end
 	
-	def download
-		return DownloadRequest.new(@credentials.client_key, @credentials.get_access_token)
+	#Download an image
+	def download_images()
+		return DownloadImages.new(@credentials.client_key, @credentials.get_access_token)
+	end
+
+	#Download a video
+	def download_videos()
+		return DownloadVideos.new(@credentials.client_key, @credentials.get_access_token)
 	end
 
 end
