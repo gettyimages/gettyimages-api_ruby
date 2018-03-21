@@ -5,16 +5,16 @@
 # for developers.
 
 require_relative "Credentials"
-require_relative "SearchImages"
-require_relative "SearchImagesCreative"
-require_relative "SearchImagesEditorial"
-require_relative "SearchVideos"
-require_relative "SearchVideosCreative"
-require_relative "SearchVideosEditorial"
-require_relative "DownloadImages"
-require_relative "DownloadVideos"
-require_relative "ImagesRequest"
-require_relative "DownloadRequest"
+require_relative "Search/SearchImages.rb"
+require_relative "Search/SearchImagesCreative.rb"
+require_relative "Search/SearchImagesEditorial.rb"
+require_relative "Search/SearchVideos.rb"
+require_relative "Search/SearchVideosCreative.rb"
+require_relative "Search/SearchVideosEditorial.rb"
+require_relative "Downloads/DownloadImages.rb"
+require_relative "Downloads/DownloadVideos.rb"
+require_relative "Images/Images.rb"
+require_relative "Videos/Videos.rb"
 
 # ConnectSDK
 # Provides a code api for interacting with getty rest services.
@@ -68,11 +68,14 @@ class ConnectSdk
 		return SearchVideosEditorial.new(@credentials.client_key, @credentials.get_access_token)
 	end
 	
-	# Create a image details configuration that support image details 
-	# == Returns:
-	# ImagesRequest configured for a image details	
+	#Get metadata for images 	
 	def images()
-		return ImagesRequest.new(@credentials.client_key, @credentials.get_access_token)
+		return Images.new(@credentials.client_key, @credentials.get_access_token)
+	end
+
+	#Get metadata for videos 	
+	def videos()
+		return Videos.new(@credentials.client_key, @credentials.get_access_token)
 	end
 	
 	#Download an image

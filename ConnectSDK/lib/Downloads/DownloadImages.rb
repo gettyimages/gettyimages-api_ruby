@@ -1,12 +1,12 @@
-require_relative "RequestBase"
+require_relative "../RequestBase.rb"
 
-class DownloadVideos < RequestBase
+class DownloadImages < RequestBase
 
     attr_accessor :asset_id
 
-	CONNECT_ROUTE = "/v3/downloads/videos" # mashery endpoint	
+	CONNECT_ROUTE = "/v3/downloads/images" # mashery endpoint	
 	@@search_route = CONNECT_ROUTE
-	QUERY_PARAMS_NAMES = ["product_id","size"]	
+	QUERY_PARAMS_NAMES = ["file_type","height","product_id","product_type"]	
 
 	QUERY_PARAMS_NAMES.each do |key|
     define_method :"with_#{key}" do |value = true| 

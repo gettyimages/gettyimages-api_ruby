@@ -1,4 +1,4 @@
-require_relative "RequestBase"
+require_relative "../RequestBase.rb"
 
 class SearchVideosCreative < RequestBase
 
