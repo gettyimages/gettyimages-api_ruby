@@ -5,7 +5,6 @@ class Videos < RequestBase
     attr_accessor :asset_id
 
 	CONNECT_ROUTE = "/v3/videos" # mashery endpoint	
-
 	QUERY_PARAMS_NAMES = ["ids","fields"]
 
 	QUERY_PARAMS_NAMES.each do |key|
@@ -21,9 +20,6 @@ class Videos < RequestBase
 			
 	public 
     def with_id(id)
-        # if (!@query_params["ids"].nil?)
-        #     @query_params.delete("ids")
-        # end
         self.asset_id = id
 		return self
 	end

@@ -10,7 +10,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_age_of_people
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"age_of_people" => ["newborn", "adult", "child"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"age_of_people" => ["newborn", "adult", "child"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -23,7 +23,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_artists
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"artists" => ["roman makhmutov", "linda raymond"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"artists" => ["roman makhmutov", "linda raymond"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -35,7 +35,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_collection_codes
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"collection_codes" => ["wri", "arf"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"collection_codes" => ["wri", "arf"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -47,7 +47,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_collections_filter_type
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"collections_filter_type" => "exclude"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"collections_filter_type" => "exclude"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -59,7 +59,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_compositions
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"compositions" => ["abstract", "headshot"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"compositions" => ["abstract", "headshot"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -71,7 +71,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_editorial_segments
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"editorial_segments" => ["archival", "sport"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"editorial_segments" => ["archival", "sport"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -83,7 +83,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_embed_content_only
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"embed_content_only" => "true"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"embed_content_only" => "true"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -95,7 +95,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_end_date
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"end_date" => "2015-04-01"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"end_date" => "2015-04-01"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -107,7 +107,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_entity_uris
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"entity_uris" => ["example_uri_1", "example_uri_2"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"entity_uris" => ["example_uri_1", "example_uri_2"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -119,7 +119,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_ethnicity
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"ethnicity" => ["black", "japanese"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"ethnicity" => ["black", "japanese"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -131,7 +131,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_event_ids
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"event_ids" => ["A123", "B456"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"event_ids" => ["A123", "B456"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -143,7 +143,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_exclude_nudity
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"exclude_nudity" => "true"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"exclude_nudity" => "true"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -155,7 +155,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_fields
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"fields" => ["allowed_use", "caption"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"fields" => ["allowed_use", "caption"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -167,7 +167,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_file_types
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"file_types" => "jpg"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"file_types" => "jpg"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -179,7 +179,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_graphical_styles
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"graphical_styles" => ["fine_art", "photography"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"graphical_styles" => ["fine_art", "photography"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -191,7 +191,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_keyword_ids
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"keyword_ids" => ["A123", "B456"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"keyword_ids" => ["A123", "B456"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -203,7 +203,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_minimum_quality_rank
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"minimum_quality_rank" => "2"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"minimum_quality_rank" => "2"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -215,7 +215,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_minimum_size
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"minimum_size" => "small"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"minimum_size" => "small"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -227,7 +227,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_number_of_people
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"number_of_people" => ["group", "one"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"number_of_people" => ["group", "one"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -239,7 +239,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_orientations
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"orientations" => ["horizontal", "square"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"orientations" => ["horizontal", "square"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -251,7 +251,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_page
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"page" => "3"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"page" => "3"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -263,7 +263,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_page_size
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"page_size" => "50"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"page_size" => "50"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -275,7 +275,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
     
     def test_search_images_editorial_with_phrase
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"phrase" => "cat"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"phrase" => "cat"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -287,7 +287,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_product_types
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"product_types" => ["easyaccess","imagepack"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"product_types" => ["easyaccess","imagepack"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -299,7 +299,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_sort_order
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"sort_order" => "newest"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"sort_order" => "newest"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -311,7 +311,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_specific_people
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"specific_people" => "reggie jackson"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"specific_people" => "reggie jackson"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -323,7 +323,7 @@ class SearchImagesEditorialTests < Test::Unit::TestCase
     end
 
     def test_search_images_editorial_with_start_date
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: hash_including({"start_date" => "2015-04-01"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images/editorial").with(query: {"start_date" => "2015-04-01"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")

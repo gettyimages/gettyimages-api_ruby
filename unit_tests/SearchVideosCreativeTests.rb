@@ -10,7 +10,7 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
     end
 
     def test_search_videos_creative_with_age_of_people
-        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: hash_including({"age_of_people" => ["newborn", "adult", "child"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"age_of_people" => ["newborn", "adult", "child"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -23,7 +23,7 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
     end
 
     def test_search_videos_creative_with_collection_codes
-        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: hash_including({"collection_codes" => ["wri", "arf"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"collection_codes" => ["wri", "arf"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -35,7 +35,7 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
     end
 
     def test_search_videos_creative_with_collections_filter_type
-        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: hash_including({"collections_filter_type" => "exclude"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"collections_filter_type" => "exclude"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -47,7 +47,7 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
     end
 
     def test_search_videos_creative_with_exclude_nudity
-        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: hash_including({"exclude_nudity" => "true"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"exclude_nudity" => "true"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -59,7 +59,7 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
     end
 
     def test_search_videos_creative_with_fields
-        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: hash_including({"fields" => ["allowed_use", "caption"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"fields" => ["allowed_use", "caption"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -71,7 +71,7 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
     end
 
     def test_search_videos_creative_with_format_available
-        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: hash_including({"format_available" => "hd"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"format_available" => "hd"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -83,7 +83,7 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
     end
 
     def test_search_videos_creative_with_frame_rates
-        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: hash_including({"frame_rates" => ["24", "29.97"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"frame_rates" => ["24", "29.97"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -95,7 +95,7 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
     end
 
     def test_search_videos_creative_with_keyword_ids
-        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: hash_including({"keyword_ids" => ["A123", "B456"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"keyword_ids" => ["A123", "B456"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -107,7 +107,7 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
     end
 
     def test_search_videos_creative_with_license_models
-        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: hash_including({"license_models" => ["rightsmanaged", "royaltyfree"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"license_models" => ["rightsmanaged", "royaltyfree"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -119,7 +119,7 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
     end
 
     def test_search_videos_creative_with_page
-        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: hash_including({"page" => "3"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"page" => "3"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -131,7 +131,7 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
     end
 
     def test_search_videos_creative_with_page_size
-        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: hash_including({"page_size" => "50"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"page_size" => "50"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -143,7 +143,7 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
     end
     
     def test_search_videos_creative_with_phrase
-        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: hash_including({"phrase" => "cat"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"phrase" => "cat"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -155,7 +155,7 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
     end
 
     def test_search_videos_creative_with_product_types
-        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: hash_including({"product_types" => ["easyaccess","imagepack"].join(",")}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"product_types" => ["easyaccess","imagepack"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
@@ -167,7 +167,7 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
     end
 
     def test_search_videos_creative_with_sort_order
-        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: hash_including({"sort_order" => "newest"}))
+        stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"sort_order" => "newest"})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")

@@ -12,22 +12,9 @@ class RequestBase
 
 	end	
 
-	public 
-	def with_response_fields(fields)
-		build_query_params("fields", fields.join(","))
-		return self
-	end
-
-	public 
-	def with_response_field(field)
-		build_query_params("fields", field)
-		return self
-	end
-
 	protected
 	def build_query_params(key, value)
 		@query_params[key].nil? ? @query_params[key] = value : @query_params[key] << "," + value
 	end 
-
 
 end
