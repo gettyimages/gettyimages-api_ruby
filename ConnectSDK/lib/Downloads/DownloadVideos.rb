@@ -26,7 +26,7 @@ class DownloadVideos < RequestBase
     def execute
         build_query_params("auto_download", "false")
         uri = CONNECT_ROUTE + "/" + self.asset_id
-		return @http_helper.post(uri, @query_params)			
+		return @http_helper.post(uri, @query_params, nil)			
 	end
 
 end

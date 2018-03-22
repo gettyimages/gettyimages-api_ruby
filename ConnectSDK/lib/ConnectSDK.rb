@@ -15,6 +15,7 @@ require_relative "Downloads/DownloadImages.rb"
 require_relative "Downloads/DownloadVideos.rb"
 require_relative "Images/Images.rb"
 require_relative "Videos/Videos.rb"
+require_relative "CustomRequest/CustomRequest.rb"
 
 # ConnectSDK
 # Provides a code api for interacting with getty rest services.
@@ -86,6 +87,11 @@ class ConnectSdk
 	#Download a video
 	def download_videos()
 		return DownloadVideos.new(@credentials.client_key, @credentials.get_access_token)
+	end
+
+	#Build a custom API request
+	def custom_request()
+		return CustomRequest.new(@credentials.client_key, @credentials.get_access_token)
 	end
 
 end

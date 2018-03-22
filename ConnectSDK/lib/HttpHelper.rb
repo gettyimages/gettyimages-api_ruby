@@ -33,13 +33,49 @@ class HttpHelper
 
 	end
 
-	def post(endpoint_path, query_params)
+	def post(endpoint_path, query_params, body)
+
+		uri = get_uri(endpoint_path)
+		if !query_params.nil?
+			uri.query = URI.encode_www_form query_params
+		end	
+		req.body = body.to_json
+		req = Net::HTTP::Post.new uri.request_uri
+		return send uri, req, @api_key, @access_token
+
+	end
+
+	def post(endpoint_path, query_params, body)
 
 		uri = get_uri(endpoint_path)
 		if !query_params.nil?
 			uri.query = URI.encode_www_form query_params
 		end	
 		req = Net::HTTP::Post.new uri.request_uri
+		req.body = body.to_json unless body.nil?
+		return send uri, req, @api_key, @access_token
+
+	end
+
+	def put(endpoint_path, query_params, body)
+
+		uri = get_uri(endpoint_path)
+		if !query_params.nil?
+			uri.query = URI.encode_www_form query_params
+		end	
+		req = Net::HTTP::Put.new uri.request_uri
+		req.body = body.to_json unless body.nil?
+		return send uri, req, @api_key, @access_token
+
+	end
+
+	def delete(endpoint_path, query_params)
+
+		uri = get_uri(endpoint_path)
+		if !query_params.nil?
+			uri.query = URI.encode_www_form query_params
+		end	
+		req = Net::HTTP::Delete.new uri.request_uri
 		return send uri, req, @api_key, @access_token
 
 	end
