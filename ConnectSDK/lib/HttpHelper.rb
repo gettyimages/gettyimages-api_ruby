@@ -39,20 +39,11 @@ class HttpHelper
 		if !query_params.nil?
 			uri.query = URI.encode_www_form query_params
 		end	
-		req.body = body.to_json
 		req = Net::HTTP::Post.new uri.request_uri
-		return send uri, req, @api_key, @access_token
-
-	end
-
-	def post(endpoint_path, query_params, body)
-
-		uri = get_uri(endpoint_path)
-		if !query_params.nil?
-			uri.query = URI.encode_www_form query_params
-		end	
-		req = Net::HTTP::Post.new uri.request_uri
-		req.body = body.to_json unless body.nil?
+		if !body.nil?
+			req["Content-Type"] = "application/json"
+			req.body = body.to_json
+		end
 		return send uri, req, @api_key, @access_token
 
 	end
@@ -64,7 +55,10 @@ class HttpHelper
 			uri.query = URI.encode_www_form query_params
 		end	
 		req = Net::HTTP::Put.new uri.request_uri
-		req.body = body.to_json unless body.nil?
+		if !body.nil?
+			req["Content-Type"] = "application/json"
+			req.body = body.to_json
+		end
 		return send uri, req, @api_key, @access_token
 
 	end
@@ -121,8 +115,13 @@ class HttpHelper
 		resp = https.request connect_request
 		# puts "HTTP RESPONSE: #{resp}" 
 
-		 if !resp.is_a?(Net::HTTPSuccess)			
-			raise "HTTP RESPONSE: #{resp}" 
+		if !resp.is_a?(Net::HTTPSuccess)
+			data = JSON.parse(resp.body)			
+			raise "HTTP RESPONSE: #{data}" 
+		end
+
+		if resp.code == '204'
+			return Hash.new
 		end
 
 		return JSON.parse(resp.body)

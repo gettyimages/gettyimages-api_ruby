@@ -11,12 +11,12 @@ class SearchImagesCreative < RequestBase
     define_method :"with_#{key}" do |value = true| 
 			if value.is_a?(Array)
 				value = value.join(",")
-				if !key.include? "id"
+				if (!key.include? "id") && (!key.include? "orientations")
 					value.downcase!
 				end	
     			build_query_params(key, value)
 			else
-				if (!key.include? "id") && (value.is_a?(String))
+				if (!key.include? "id") && (!key.include? "orientations") && (value.is_a?(String))
 					value.downcase!
 				end	
     			build_query_params(key, value)

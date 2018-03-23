@@ -22,7 +22,7 @@ class Credentials
 		return URI.parse "#{Connect_Api_Host::API_BASE_URL}#{path}"
 	end
 
-	# Get Access Token Using Connect API OAuth 2.0
+	# Get Access Token Using Connect API OAuth
 	def get_access_token
 		
 		# Determine OAuth Flow
@@ -57,11 +57,12 @@ class Credentials
 		req.set_form_data oauth_data
 		
 		res = https.request req
-		data = res.body if res.is_a?(Net::HTTPSuccess)
+		data = res.body
 		result = JSON.parse(data)
-
+		if !res.is_a?(Net::HTTPSuccess)
+			raise res.code + ": " + result['error_description']	
+		end
 		return result['access_token']
-
 	end
 
 end
