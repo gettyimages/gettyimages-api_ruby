@@ -12,7 +12,7 @@ Seamlessly integrate Getty Images' expansive digital content, powerful search te
 - [Bundler](http://bundler.io)
 
 ## Examples
-###Search for one or more images
+### Search for one or more images
 ```ruby
 require "ConnectSdk"
 
@@ -35,7 +35,7 @@ results["images"].each do | image |
 end
 ```
 
-###Get detailed information for one image
+### Get detailed information for one image
 ```ruby
 require "ConnectSdk"
 
@@ -52,7 +52,7 @@ result = connectSdk
 puts result
 ```
 
-###Get detailed information for multiple images
+### Get detailed information for multiple images
 ```ruby
 require "ConnectSdk"
 
@@ -71,7 +71,7 @@ results["images"].each do | image |
 end
 ```
 
-###Download an image
+### Download an image
 ```ruby
 require "ConnectSdk"
 
@@ -88,7 +88,7 @@ result = connectSdk
 puts result["uri"]
 ```
 
-###Use the custom request functionality for GET request with query parameters
+### Use the custom request functionality for GET request with query parameters
 ```ruby
 require "ConnectSdk"
 
@@ -109,7 +109,7 @@ results["images"].each do | image |
 end
 ```
 
-###Use the custom request functionality for POST request with body
+### Use the custom request functionality for POST request with body
 ```ruby
 require "ConnectSdk"
 
