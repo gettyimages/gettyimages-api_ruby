@@ -216,7 +216,7 @@ class SearchImagesTests < Test::Unit::TestCase
     end
 
     def test_search_images_with_orientations
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images").with(query: {"orientations" => ["horizontal", "square"].join(",")})
+        stub_request(:get, "https://api.gettyimages.com/v3/search/images").with(query: {"orientations" => ["Horizontal", "Square"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
         connectSdk 		= ConnectSdk.new("api key", "api secret")
