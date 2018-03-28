@@ -1,7 +1,7 @@
 
 require 'test/unit'
 require 'webmock/test_unit'
-require_relative "../ConnectSDK/lib/ConnectSDK.rb"
+require_relative "../lib/ConnectSDK.rb"
 
  
 class SearchImagesTests < Test::Unit::TestCase
