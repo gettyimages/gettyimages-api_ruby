@@ -1,12 +1,5 @@
 language: ruby
 sudo: false
-notifications:
-  slack:
-    on_success: always
-    on_failure: always
-    on_start: never
-    rooms:
-      secure: tEC0voqIsLZ7saaJlbS1vinS6CeoPivHsMcqmAcibM3bwhPWD4ueQdEqKf93BG3R0DeFDU7NoCb2nN8Oyrtq89N9zVEpD4tzAQChQymUUfxF3/WTXzX6Ifubm8fi7HgJHROWC04aFSTf1HUFyh1GWxgtQ8j6DsV+E5vEn3pqHRmaNRl0UXJta49qU2OXJVdBzIYOhMhZMJaVZPGhbBIfKzhTjz6h8nxg/qbpm3TNbHXZmjBtMJs7Ru84u2/BEAdz7/we4PExi2woSPWHmdHWEuvvSk1ZMEP47unI1UvZ69bjBsAV7H8OhbTygfILnjkiJbawVGAgZ1+n2ztc6SI5PbgB50hKCgW6qwH+7fkDsXetEwEe6NACOozuG2SbRUHNhKcDdpy4JrdA17Z2FikmET1hzcve5ZCw+bV1sCISpXTYNkWLqQGkm/5VdFlvdgB2uPXq9h9gnY1gRjI5MLZ1GzF0WwTDqKPBKhhZFho7oyBZS6pdOOp0+yN/Pu3qKUl97sWBw/usJTpO6jNWQPqV5ItQOjlUc6/5T9TJjtXdaI+H0kNbHQTlyaha1uywt/3JG8OZLx1e4wLPz+CFpR0eWghRlQcZBU9YsyFUrPN8hxKcUTGHCBseSNXTkl9m08toQJKRmIJ0QOXjLR5MFIkMoO+O7eyuE7FKYcl0tt/YFbQ=
 deploy:
   provider: rubygems
   api_key:
