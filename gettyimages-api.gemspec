@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
   gem_files          = `git ls-files -z`.split("\x0")
   gem_ignored_files  = `git ls-files -z unit_tests/`.split("\x0")
-  spec.files         = gem_files - gem_ignored_files - '.travis.yml'
+  spec.files         = gem_files - gem_ignored_files - ['.travis.yml']
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
   
