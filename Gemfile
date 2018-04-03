@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'ConnectSDK', '~> 1.0.1.Beta'
-gem 'json', '~> 1.8.1'
-gem 'cucumber', '~> 1.3.17' 
-gem 'rake', '~> 10.4.2'
+gem 'rake'
+gem 'json'
+gem 'test-unit'
+gem 'webmock'                                                                                                                                                                                                                                                                                                                                                                                                                           
