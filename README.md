@@ -1,5 +1,5 @@
 # Getty Images API Ruby SDK
-
+[![Build Status](https://travis-ci.org/gettyimages/gettyimages-api_ruby.svg?branch=master)](https://travis-ci.org/gettyimages/gettyimages-api_ruby)  
 Seamlessly integrate Getty Images' expansive digital content, powerful search technology, and rich metadata into your publishing tools, products and services!
 
 - Search for images and videos from our extensive creative and editorial catalogs.
