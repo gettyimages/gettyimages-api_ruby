@@ -1,6 +1,6 @@
 require 'test/unit'
 require 'webmock/test_unit'
-require_relative "../lib/ConnectSDK.rb"
+require_relative "../lib/ApiClient.rb"
 
  
 class DownloadImagesTests < Test::Unit::TestCase
@@ -13,8 +13,8 @@ class DownloadImagesTests < Test::Unit::TestCase
         stub_request(:post, "https://api.gettyimages.com/v3/downloads/images/123").with(query: {"auto_download" => "false"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.download_images()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.download_images()
                             .with_id("123")
                             .execute()
 
@@ -25,8 +25,8 @@ class DownloadImagesTests < Test::Unit::TestCase
         stub_request(:post, "https://api.gettyimages.com/v3/downloads/images/123").with(query: {"auto_download" => "false", "file_type" => "jpg"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.download_images()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.download_images()
                             .with_id("123")
                             .with_file_type("jpg")
                             .execute()
@@ -38,8 +38,8 @@ class DownloadImagesTests < Test::Unit::TestCase
         stub_request(:post, "https://api.gettyimages.com/v3/downloads/images/123").with(query: {"auto_download" => "false", "height" => "592"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.download_images()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.download_images()
                             .with_id("123")
                             .with_height("592")
                             .execute()
@@ -51,8 +51,8 @@ class DownloadImagesTests < Test::Unit::TestCase
         stub_request(:post, "https://api.gettyimages.com/v3/downloads/images/123").with(query: {"auto_download" => "false", "product_id" => "567"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.download_images()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.download_images()
                             .with_id("123")
                             .with_product_id(567)
                             .execute()
@@ -64,8 +64,8 @@ class DownloadImagesTests < Test::Unit::TestCase
         stub_request(:post, "https://api.gettyimages.com/v3/downloads/images/123").with(query: {"auto_download" => "false", "product_type" => "easyaccess"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.download_images()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.download_images()
                             .with_id("123")
                             .with_product_type("easyaccess")
                             .execute()

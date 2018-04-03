@@ -4,7 +4,7 @@ class DownloadVideos < RequestBase
 
     attr_accessor :asset_id
 
-	CONNECT_ROUTE = "/v3/downloads/videos" # mashery endpoint	
+	API_ROUTE = "/v3/downloads/videos" # mashery endpoint	
 	QUERY_PARAMS_NAMES = ["product_id","size"]	
 
 	QUERY_PARAMS_NAMES.each do |key|
@@ -25,7 +25,7 @@ class DownloadVideos < RequestBase
 
     def execute
         build_query_params("auto_download", "false")
-        uri = CONNECT_ROUTE + "/" + self.asset_id
+        uri = API_ROUTE + "/" + self.asset_id
 		return @http_helper.post(uri, @query_params, nil)			
 	end
 

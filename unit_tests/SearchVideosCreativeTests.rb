@@ -1,6 +1,6 @@
 require 'test/unit'
 require 'webmock/test_unit'
-require_relative "../lib/ConnectSDK.rb"
+require_relative "../lib/ApiClient.rb"
 
  
 class SearchVideosCreativeTests < Test::Unit::TestCase
@@ -13,8 +13,8 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"age_of_people" => ["newborn", "adult", "child"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_creative()
                             .with_age_of_people(["newborn", "adult"])
                             .with_age_of_people("child")
                             .execute()
@@ -26,8 +26,8 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"collection_codes" => ["wri", "arf"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_creative()
                             .with_collection_codes(["WRI", "ARF"])
                             .execute()
 
@@ -38,8 +38,8 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"collections_filter_type" => "exclude"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_creative()
                             .with_collections_filter_type("exclude")
                             .execute()
 
@@ -50,8 +50,8 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"exclude_nudity" => "true"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_creative()
                             .with_exclude_nudity("true")
                             .execute()
 
@@ -62,8 +62,8 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"fields" => ["allowed_use", "caption"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_creative()
                             .with_fields(["allowed_use", "caption"])
                             .execute()
 
@@ -74,8 +74,8 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"format_available" => "hd"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_creative()
                             .with_format_available("HD")
                             .execute()
 
@@ -86,8 +86,8 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"frame_rates" => ["24", "29.97"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_creative()
                             .with_frame_rates(["24", "29.97"])
                             .execute()
 
@@ -98,8 +98,8 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"keyword_ids" => ["A123", "B456"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_creative()
                             .with_keyword_ids(["A123", "B456"])
                             .execute()
 
@@ -110,8 +110,8 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"license_models" => ["rightsmanaged", "royaltyfree"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_creative()
                             .with_license_models(["rightsmanaged", "royaltyfree"])
                             .execute()
 
@@ -122,8 +122,8 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"page" => "3"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_creative()
                             .with_page(3)
                             .execute()
 
@@ -134,8 +134,8 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"page_size" => "50"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_creative()
                             .with_page_size(50)
                             .execute()
 
@@ -146,8 +146,8 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"phrase" => "cat"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_creative()
                             .with_phrase("CAT")
                             .execute()
 
@@ -158,8 +158,8 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"product_types" => ["easyaccess","imagepack"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_creative()
                             .with_product_types(["easyaccess","imagepack"])
                             .execute()
 
@@ -170,8 +170,8 @@ class SearchVideosCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/creative").with(query: {"sort_order" => "newest"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_creative()
                             .with_sort_order("newest")
                             .execute()
 

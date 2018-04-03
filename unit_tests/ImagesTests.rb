@@ -1,6 +1,6 @@
 require 'test/unit'
 require 'webmock/test_unit'
-require_relative "../lib/ConnectSDK.rb"
+require_relative "../lib/ApiClient.rb"
 
  
 class ImagesTests < Test::Unit::TestCase
@@ -13,8 +13,8 @@ class ImagesTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/images").with(query: {"ids" => ["123","333"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.images()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.images()
                             .with_ids(["123", "333"])
                             .execute()
 
@@ -25,8 +25,8 @@ class ImagesTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/images/123")
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.images()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.images()
                             .with_id("123")
                             .execute()
 
@@ -37,8 +37,8 @@ class ImagesTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/images").with(query: {"ids" => ["123","333"].join(","), "fields" => ["city","detail_set"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.images()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.images()
                             .with_ids(["123", "333"])
                             .with_fields(["city","detail_set"])
                             .execute()

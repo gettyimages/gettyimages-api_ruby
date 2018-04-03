@@ -1,12 +1,11 @@
 require "pp"
-require_relative "ConnectSDK"
+require_relative "GettyImagesApi"
 
 api_key = "api key"
 api_secret = "api secret"
 
-# Example of Connect SDK
-connectSdk 		= ConnectSdk.new(api_key, api_secret)
-search_results	= connectSdk.search().images().creative()
+apiClient 		= GettyImagesApi.new(api_key, api_secret)
+search_results	= apiClient.search().images().creative()
 					.with_phrase("gorilla")
 					.with_response_fields(["id","title"])
 					.with_graphical_styles("illustration")

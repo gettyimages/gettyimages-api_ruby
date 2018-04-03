@@ -4,7 +4,7 @@ class Images < RequestBase
 
     attr_accessor :asset_id
 
-	CONNECT_ROUTE = "/v3/images" # mashery endpoint	
+	API_ROUTE = "/v3/images" # mashery endpoint	
 	QUERY_PARAMS_NAMES = ["ids","fields"]
 
 	QUERY_PARAMS_NAMES.each do |key|
@@ -26,7 +26,7 @@ class Images < RequestBase
 
 	public
     def execute
-        self.asset_id.nil? ? uri = CONNECT_ROUTE : uri = CONNECT_ROUTE + "/" + self.asset_id
+        self.asset_id.nil? ? uri = API_ROUTE : uri = API_ROUTE + "/" + self.asset_id
 		return @http_helper.get(uri, @query_params)			
 	end
 

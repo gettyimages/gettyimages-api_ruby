@@ -19,10 +19,10 @@ class Credentials
 	end
 
 	def get_uri(path)
-		return URI.parse "#{Connect_Api_Host::API_BASE_URL}#{path}"
+		return URI.parse "#{Api_Host::API_BASE_URL}#{path}"
 	end
 
-	# Get Access Token Using Connect API OAuth
+	# Get Access Token Using OAuth
 	def get_access_token
 		
 		# Determine OAuth Flow

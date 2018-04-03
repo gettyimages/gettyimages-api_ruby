@@ -2,9 +2,9 @@ require 'net/http'
 require 'uri'
 require 'json'
 require 'rbconfig'
-require_relative 'ConnectSDK/version'
+require_relative 'GettyImagesApi/version'
 
-class Connect_Api_Host
+class Api_Host
 	API_HOST = "api.gettyimages.com"
 	API_BASE_URL = "https://#{API_HOST}"
 end
@@ -17,7 +17,7 @@ class HttpHelper
 	end	
 
 	def get_uri(path)
-		return URI.parse "#{Connect_Api_Host::API_BASE_URL}#{path}"
+		return URI.parse "#{Api_Host::API_BASE_URL}#{path}"
 	end
 
 	def get(endpoint_path, query_params)
@@ -93,27 +93,20 @@ class HttpHelper
   	end
 
 	private
-	def send(connect_uri, connect_request, api_key, bearer_token = "")
+	def send(uri, request, api_key, bearer_token = "")
 
 		# define HTTPS connection
-		https = Net::HTTP.new(connect_uri.host, connect_uri.port)
+		https = Net::HTTP.new(uri.host, uri.port)
 		https.use_ssl = true
 		https.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 		# define headers
-		connect_request["User-Agent"] = "ConnectSDK/#{ConnectSDK::VERSION} (#{os} ; Ruby #{RUBY_VERSION})"
-		connect_request["Api-Key"] = api_key
-		connect_request["Authorization"] = "Bearer #{bearer_token}" unless bearer_token.empty?
-
-		
-		# connect_request.each_header do |header_name, header_value|
- 	 	#	puts "#{header_name} : #{header_value}"
-		# end
-		# https.set_debug_output $stderr
+		request["User-Agent"] = "GettImagesApiSdk/#{GettyImagesApi::VERSION} (#{os} ; Ruby #{RUBY_VERSION})"
+		request["Api-Key"] = api_key
+		request["Authorization"] = "Bearer #{bearer_token}" unless bearer_token.empty?
 		
 		# send request		
-		resp = https.request connect_request
-		# puts "HTTP RESPONSE: #{resp}" 
+		resp = https.request request
 
 		if !resp.is_a?(Net::HTTPSuccess)
 			data = JSON.parse(resp.body)			

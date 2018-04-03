@@ -1,6 +1,6 @@
 require 'test/unit'
 require 'webmock/test_unit'
-require_relative "../lib/ConnectSDK.rb"
+require_relative "../lib/ApiClient.rb"
 
  
 class DownloadVideosTests < Test::Unit::TestCase
@@ -13,8 +13,8 @@ class DownloadVideosTests < Test::Unit::TestCase
         stub_request(:post, "https://api.gettyimages.com/v3/downloads/videos/123").with(query: {"auto_download" => "false"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.download_videos()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.download_videos()
                             .with_id("123")
                             .execute()
 
@@ -25,8 +25,8 @@ class DownloadVideosTests < Test::Unit::TestCase
         stub_request(:post, "https://api.gettyimages.com/v3/downloads/videos/123").with(query: {"auto_download" => "false", "product_id" => "567"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.download_videos()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.download_videos()
                             .with_id("123")
                             .with_product_id(567)
                             .execute()
@@ -38,8 +38,8 @@ class DownloadVideosTests < Test::Unit::TestCase
         stub_request(:post, "https://api.gettyimages.com/v3/downloads/videos/123").with(query: {"auto_download" => "false", "size" => "hd1"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.download_videos()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.download_videos()
                             .with_id("123")
                             .with_size("hd1")
                             .execute()

@@ -1,6 +1,6 @@
 require 'test/unit'
 require 'webmock/test_unit'
-require_relative "../lib/ConnectSDK.rb"
+require_relative "../lib/ApiClient.rb"
 
  
 class VideosTests < Test::Unit::TestCase
@@ -13,8 +13,8 @@ class VideosTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/videos").with(query: {"ids" => ["123","333"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.videos()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.videos()
                             .with_ids(["123", "333"])
                             .execute()
 
@@ -25,8 +25,8 @@ class VideosTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/videos/123")
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.videos()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.videos()
                             .with_id("123")
                             .execute()
 
@@ -37,8 +37,8 @@ class VideosTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/videos").with(query: {"ids" => ["123","333"].join(","), "fields" => ["caption","keywords"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.videos()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.videos()
                             .with_ids(["123", "333"])
                             .with_fields(["caption","keywords"])
                             .execute()

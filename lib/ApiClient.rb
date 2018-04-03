@@ -1,9 +1,3 @@
-# Connect SDK by Getty Images.
-# Provides an interface to Getty Images connect api.
-# 
-# The goal of the SDK is to simplify credential management and provide a reusable library
-# for developers.
-
 require_relative "Credentials"
 require_relative "Search/SearchImages.rb"
 require_relative "Search/SearchImagesCreative.rb"
@@ -17,11 +11,7 @@ require_relative "Images/Images.rb"
 require_relative "Videos/Videos.rb"
 require_relative "CustomRequest/CustomRequest.rb"
 
-# ConnectSDK
-# Provides a code api for interacting with getty rest services.
-# {https://connect.gettyimages.com/swagger/ui/index.html Connect Getty Images API}
-
-class ConnectSdk
+class ApiClient
 	
 	# Initialize the Credentials to be used by the SDK
 	def initialize(api_key, api_secret, user_name = nil, password = nil)

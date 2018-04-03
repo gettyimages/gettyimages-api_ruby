@@ -2,7 +2,7 @@ require_relative "../RequestBase.rb"
 
 class SearchVideosCreative < RequestBase
 
-	CONNECT_ROUTE = "/v3/search/videos/creative" # mashery endpoint	
+	API_ROUTE = "/v3/search/videos/creative" # mashery endpoint	
     QUERY_PARAMS_NAMES = ["age_of_people","collection_codes","collections_filter_type","exclude_nudity","fields","format_available","frame_rates",
         "keyword_ids","license_models","page","page_size","phrase","product_types","sort_order"]
 
@@ -25,7 +25,7 @@ class SearchVideosCreative < RequestBase
   	end
 
 	def execute
-		return @http_helper.get(CONNECT_ROUTE, @query_params)			
+		return @http_helper.get(API_ROUTE, @query_params)			
 	end
 
 end

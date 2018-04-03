@@ -1,6 +1,6 @@
 require 'test/unit'
 require 'webmock/test_unit'
-require_relative "../lib/ConnectSDK.rb"
+require_relative "../lib/ApiClient.rb"
 
  
 class CustomRequestsTests < Test::Unit::TestCase
@@ -13,8 +13,8 @@ class CustomRequestsTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images")
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        results	= connectSdk.custom_request()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        results	= apiClient.custom_request()
                     .with_method("GET")
                     .with_route("search/images")
                     .execute()
@@ -26,8 +26,8 @@ class CustomRequestsTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images").with(query: {"phrase" => "cat", "fields" => ["id", "title"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        results	= connectSdk.custom_request()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        results	= apiClient.custom_request()
                     .with_method("GET")
                     .with_route("search/images")
                     .with_query_parameters({"phrase"=> "cat", "fields"=> ["id", "title"]})
@@ -40,8 +40,8 @@ class CustomRequestsTests < Test::Unit::TestCase
         stub_request(:post, "https://api.gettyimages.com/v3/downloads/images").with(body: '{"body":"this body"}')
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        results	= connectSdk.custom_request()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        results	= apiClient.custom_request()
                     .with_method("POST")
                     .with_route("downloads/images")
                     .with_body({"body"=> "this body"})
@@ -54,8 +54,8 @@ class CustomRequestsTests < Test::Unit::TestCase
         stub_request(:put, "https://api.gettyimages.com/v3/boards").with(body: '{"body":"this body"}')
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        results	= connectSdk.custom_request()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        results	= apiClient.custom_request()
                     .with_method("PUT")
                     .with_route("boards")
                     .with_body({"body"=> "this body"})
@@ -68,8 +68,8 @@ class CustomRequestsTests < Test::Unit::TestCase
         stub_request(:delete, "https://api.gettyimages.com/v3/boards/123/assets").with(query: {"asset_ids" => ["456", "789"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        results	= connectSdk.custom_request()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        results	= apiClient.custom_request()
                     .with_method("DELETE")
                     .with_route("boards/123/assets")
                     .with_query_parameters("asset_ids" => ["456", "789"])

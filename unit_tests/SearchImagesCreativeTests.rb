@@ -1,6 +1,6 @@
 require 'test/unit'
 require 'webmock/test_unit'
-require_relative "../lib/ConnectSDK.rb"
+require_relative "../lib/ApiClient.rb"
 
  
 class SearchImagesCreativeTests < Test::Unit::TestCase
@@ -13,8 +13,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"age_of_people" => ["newborn", "adult", "child"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_age_of_people(["newborn", "adult"])
                             .with_age_of_people("child")
                             .execute()
@@ -26,8 +26,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"artists" => ["roman makhmutov", "linda raymond"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_artists(["roman makhmutov", "Linda Raymond"])
                             .execute()
 
@@ -38,8 +38,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"collection_codes" => ["wri", "arf"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_collection_codes(["WRI", "ARF"])
                             .execute()
 
@@ -50,8 +50,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"collections_filter_type" => "exclude"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_collections_filter_type("exclude")
                             .execute()
 
@@ -62,8 +62,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"color" => "#002244"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_color("#002244")
                             .execute()
 
@@ -74,8 +74,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"compositions" => ["abstract", "headshot"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_compositions(["abstract", "headshot"])
                             .execute()
 
@@ -86,8 +86,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"embed_content_only" => "true"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_embed_content_only("true")
                             .execute()
 
@@ -98,8 +98,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"ethnicity" => ["black", "japanese"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_ethnicity(["black", "japanese"])
                             .execute()
 
@@ -110,8 +110,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"exclude_nudity" => "true"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_exclude_nudity("true")
                             .execute()
 
@@ -122,8 +122,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"fields" => ["allowed_use", "caption"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_fields(["allowed_use", "caption"])
                             .execute()
 
@@ -134,8 +134,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"file_types" => "jpg"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_file_types("jpg")
                             .execute()
 
@@ -146,8 +146,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"graphical_styles" => ["fine_art", "photography"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_graphical_styles(["fine_art", "photography"])
                             .execute()
 
@@ -158,8 +158,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"keyword_ids" => ["A123", "B456"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_keyword_ids(["A123", "B456"])
                             .execute()
 
@@ -170,8 +170,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"license_models" => ["rightsmanaged", "royaltyfree"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_license_models(["rightsmanaged", "royaltyfree"])
                             .execute()
 
@@ -182,8 +182,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"minimum_size" => "small"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_minimum_size("small")
                             .execute()
 
@@ -194,8 +194,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"number_of_people" => ["group", "one"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_number_of_people(["group", "one"])
                             .execute()
 
@@ -206,8 +206,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"orientations" => ["Horizontal", "Square"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_orientations(["Horizontal", "Square"])
                             .execute()
 
@@ -218,8 +218,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"page" => "3"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_page(3)
                             .execute()
 
@@ -230,8 +230,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"page_size" => "50"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_page_size(50)
                             .execute()
 
@@ -242,8 +242,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"phrase" => "cat"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_phrase("CAT")
                             .execute()
 
@@ -254,8 +254,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"prestige_content_only" => "true"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_prestige_content_only(true)
                             .execute()
 
@@ -266,8 +266,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"product_types" => ["easyaccess","imagepack"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_product_types(["easyaccess","imagepack"])
                             .execute()
 
@@ -278,8 +278,8 @@ class SearchImagesCreativeTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/images/creative").with(query: {"sort_order" => "newest"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_images_creative()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_images_creative()
                             .with_sort_order("newest")
                             .execute()
 

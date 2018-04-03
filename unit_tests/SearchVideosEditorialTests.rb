@@ -1,6 +1,6 @@
 require 'test/unit'
 require 'webmock/test_unit'
-require_relative "../lib/ConnectSDK.rb"
+require_relative "../lib/ApiClient.rb"
 
  
 class SearchVideosEditorialTests < Test::Unit::TestCase
@@ -13,8 +13,8 @@ class SearchVideosEditorialTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/editorial").with(query: {"age_of_people" => ["newborn", "adult", "child"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_editorial()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_editorial()
                             .with_age_of_people(["newborn", "adult"])
                             .with_age_of_people("child")
                             .execute()
@@ -26,8 +26,8 @@ class SearchVideosEditorialTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/editorial").with(query: {"collection_codes" => ["wri", "arf"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_editorial()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_editorial()
                             .with_collection_codes(["WRI", "ARF"])
                             .execute()
 
@@ -38,8 +38,8 @@ class SearchVideosEditorialTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/editorial").with(query: {"collections_filter_type" => "exclude"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_editorial()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_editorial()
                             .with_collections_filter_type("exclude")
                             .execute()
 
@@ -50,8 +50,8 @@ class SearchVideosEditorialTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/editorial").with(query: {"editorial_video_types" => ["raw", "produced"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_editorial()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_editorial()
                             .with_editorial_video_types(["raw","produced"])
                             .execute()
 
@@ -62,8 +62,8 @@ class SearchVideosEditorialTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/editorial").with(query: {"entity_uris" => ["example_uri_1", "example_uri_2"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_editorial()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_editorial()
                             .with_entity_uris(["example_uri_1","example_uri_2"])
                             .execute()
 
@@ -74,8 +74,8 @@ class SearchVideosEditorialTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/editorial").with(query: {"exclude_nudity" => "true"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_editorial()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_editorial()
                             .with_exclude_nudity("true")
                             .execute()
 
@@ -86,8 +86,8 @@ class SearchVideosEditorialTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/editorial").with(query: {"fields" => ["allowed_use", "caption"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_editorial()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_editorial()
                             .with_fields(["allowed_use", "caption"])
                             .execute()
 
@@ -98,8 +98,8 @@ class SearchVideosEditorialTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/editorial").with(query: {"format_available" => "hd"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_editorial()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_editorial()
                             .with_format_available("HD")
                             .execute()
 
@@ -110,8 +110,8 @@ class SearchVideosEditorialTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/editorial").with(query: {"frame_rates" => ["24", "29.97"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_editorial()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_editorial()
                             .with_frame_rates(["24", "29.97"])
                             .execute()
 
@@ -122,8 +122,8 @@ class SearchVideosEditorialTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/editorial").with(query: {"keyword_ids" => ["A123", "B456"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_editorial()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_editorial()
                             .with_keyword_ids(["A123", "B456"])
                             .execute()
 
@@ -134,8 +134,8 @@ class SearchVideosEditorialTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/editorial").with(query: {"page" => "3"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_editorial()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_editorial()
                             .with_page(3)
                             .execute()
 
@@ -146,8 +146,8 @@ class SearchVideosEditorialTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/editorial").with(query: {"page_size" => "50"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_editorial()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_editorial()
                             .with_page_size(50)
                             .execute()
 
@@ -158,8 +158,8 @@ class SearchVideosEditorialTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/editorial").with(query: {"phrase" => "cat"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_editorial()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_editorial()
                             .with_phrase("CAT")
                             .execute()
 
@@ -170,8 +170,8 @@ class SearchVideosEditorialTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/editorial").with(query: {"product_types" => ["easyaccess","imagepack"].join(",")})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_editorial()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_editorial()
                             .with_product_types(["easyaccess","imagepack"])
                             .execute()
 
@@ -182,8 +182,8 @@ class SearchVideosEditorialTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/editorial").with(query: {"sort_order" => "newest"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_editorial()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_editorial()
                             .with_sort_order("newest")
                             .execute()
 
@@ -194,8 +194,8 @@ class SearchVideosEditorialTests < Test::Unit::TestCase
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos/editorial").with(query: {"specific_people" => "reggie jackson"})
             .to_return(body: '{ "message": "success" }')
 
-        connectSdk 		= ConnectSdk.new("api key", "api secret")
-        search_results	= connectSdk.search_videos_editorial()
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos_editorial()
                             .with_specific_people(["Reggie Jackson"])
                             .execute()
 
