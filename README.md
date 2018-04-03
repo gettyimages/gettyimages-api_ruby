@@ -9,7 +9,7 @@ Seamlessly integrate Getty Images' expansive digital content, powerful search te
 
 ## Requirements
 
-- Ruby version > 2.4
+- Ruby version >= 2.4
 - [Bundler](http://bundler.io)
 
 ## Examples
