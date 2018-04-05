@@ -4,7 +4,9 @@ script:
 # If this is not a pull request and the commit is tagged, set the package version to the git tag
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ -n "$TRAVIS_TAG" ]; then PACKAGE_VERSION=$TRAVIS_TAG; fi
 - printenv | grep TRAVIS | sort
+- echo $PACKAGE_VERSION
 - sed -i -e "s/0.0.0/$PACKAGE_VERSION/" ./lib/GettyImagesApi/version.rb
+- git add ./lib/GettyImagesApi/version.rb && git commit -m 'update version'
 deploy:
   provider: rubygems
   gem: gettyimages-api
