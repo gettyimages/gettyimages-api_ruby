@@ -17,7 +17,7 @@ Seamlessly integrate Getty Images' expansive digital content, powerful search te
 ### Search for one or more images
 
 ```ruby
-require "GettyImagesApi"
+require 'gettyimages-api'
 
 api_key = "API Key"
 api_secret = "API Secret"
@@ -41,7 +41,7 @@ end
 ### Get detailed information for one image
 
 ```ruby
-require "GettyImagesApi"
+require 'gettyimages-api'
 
 api_key = "API Key"
 api_secret = "API Secret"
@@ -59,7 +59,7 @@ puts result
 ### Get detailed information for multiple images
 
 ```ruby
-require "GettyImagesApi"
+require 'gettyimages-api'
 
 api_key = "API Key"
 api_secret = "API Secret"
@@ -79,7 +79,7 @@ end
 ### Download an image
 
 ```ruby
-require "GettyImagesApi"
+require 'gettyimages-api'
 
 api_key = "API Key"
 api_secret = "API Secret"
@@ -97,7 +97,7 @@ puts result["uri"]
 ### Use the custom request functionality for GET request with query parameters
 
 ```ruby
-require "GettyImagesApi"
+require 'gettyimages-api'
 
 api_key = "API Key"
 api_secret = "API Secret"
@@ -119,7 +119,7 @@ end
 ### Use the custom request functionality for POST request with body
 
 ```ruby
-require "GettyImagesApi"
+require 'gettyimages-api'
 
 api_key = "API Key"
 api_secret = "API Secret"
