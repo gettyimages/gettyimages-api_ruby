@@ -1,8 +1,8 @@
 language: ruby
 sudo: false
 script:
-# If this is not a pull request and the commit is tagged, set the package version to the git tag
-- if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ -n "$TRAVIS_TAG" ]; then PACKAGE_VERSION=$TRAVIS_TAG; fi
+- if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ -n "$TRAVIS_TAG" ]; then PACKAGE_VERSION=$TRAVIS_TAG;
+  fi
 - printenv | grep TRAVIS | sort
 - echo $PACKAGE_VERSION
 - sed -i -e "s/0.0.0/$PACKAGE_VERSION/" ./lib/GettyImagesApi/version.rb
@@ -10,10 +10,10 @@ script:
 deploy:
   provider: rubygems
   gem: gettyimages-api
-  api_key:
-    secure: wbzyq51bpmG7i86AdZxSFGGMqvLvuCBnEIfhQx7cP3ZHH/f2kBqYI9MdcMiElK/J26yAjisYm/cZJP5AJWywEv1xabPKkMQuoCo339wLEeFRXVcR+A5rEC2lUMFw8tuC7zcTVhL06aYuNX2Dwt4dmIQ/jLT/C2+rOojV/4bVmN7P/zyaxxy+S+p68o/9o4CsvqQs2S3RU6kYgAwGwm+tfQb1F2hle3fXvLnbXKguv1p/B0XasRJH4nrPGLy9WSzAg2r+LawZw9XFgDlooyj4cdYNMw9FVGserxaBUPMLJnR1gv6BWgJCcbb6URQFMO6nqF0DFSa/Z/q3f0mtz5v1vmq266+kuEgxnfBdfP8/7tGxI+3ojTrpmqbwPw06PW4W4sFsmW91nP1Ve0EMKJh72bHgPi9SRbqR2sd9XJx3HBBPMl+xkoWs44zElvVjg3gRb8DAQXPf+2WW3nNZnBCUtfwqf576AyNqmt1oJXhEFySo8Lh1OnXPLkvR2kleDvHA6oEA5FzM8Sum0OFdOOZS8b+hsgV5IKDOWDaRj82xM5s1WyGbFPGJn8p21Mk12ksW+BfR08kGut+cEkZhNjHCCSde9AnQucVEyVLGxV1vr376JPT3yZyYuhGSrlL62onsMeqhzK0dkOZg6FtpE8FnQHDVRgZ2PjZVM3i1E+q83Ws=
   gemspec: gettyimages-api.gemspec
   on:
     tags: true
     repo: gettyimages/gettyimages-api_ruby
     branch: master
+  api_key:
+    secure: bhHKmTwLFQc9Alw4qCXgKOsjKsp0LEzg9/VyHHmY5+DW6BGy0+HKDj7BbYr8rHcBsDiXzL5hj6Jzbohg25jznu8u/KgqycRZtP5DNStAR/bPznov0SavcvQOCpaUFua5ilEwuLGdDnekOJtxhZ0eM3oxUfk2REASirBeUYXAoyqoSqeGCg42aPFQU9hAG7TC/E0R/bQgwKXnOTQU/ybsnva2fobp4a813Q4SnPz8NQ0axYKmFA8YVawZxO35ikMEgMZ+yWJRtky+C4TiSc/4kM1XuFN0e34ryzFz9bxNBw51vFmXyTYnU9gsEXs8bufkxrvtdjEoVUQn9t5kgjurzy6mMTGBSBchcCfty3AUQEW0YjGolnSsS+uOl5Nig/ibTodJh6C6J5hYKnQ9rjU/1gG7V9yowuGJXjGHgJZlj/68v01nc5xHUVcfWpMUzvqyuvEwoZ3YB3orx4HHA0aNDTkp2gU7rrpJKNOxEMDmCmfbLgtXaqEq0/asJUYZgf0nvqUM+Xxq2ZeFU0d9vSDDi1G6o3SpXzXay00IZQ1SagyMZZevWiMnjMu+tIJz1cJY+CiZMtI0VM7fCC7lOBvRQn8XQdUHk1rCru0DtMDKyytKReFnmRZiAkPEuqFGQCg9dfrmOSo/+f1LQE+GOJSzDdh4b2lqjWfEIqQED+e5tjo=
