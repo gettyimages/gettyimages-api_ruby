@@ -6,7 +6,6 @@ require_relative 'lib/GettyImagesApi/version'
 Gem::Specification.new do |spec|
   spec.name          = "gettyimages-api"
   spec.version       = GettyImagesApi::VERSION
-  spec.version       = "#{spec.version}-alpha-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
   spec.authors       = ["Getty Images"]
   spec.email         = ["developersupport@gettyimages.com"]
   spec.summary       = "Getty Images API SDK"
