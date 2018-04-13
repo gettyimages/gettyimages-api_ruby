@@ -1,16 +1,29 @@
 # Getty Images API Ruby SDK
 [![Build Status](https://travis-ci.org/gettyimages/gettyimages-api_ruby.svg?branch=master)](https://travis-ci.org/gettyimages/gettyimages-api_ruby)  
-Seamlessly integrate Getty Images' expansive digital content, powerful search technology, and rich metadata into your publishing tools, products and services!
 
-- Search for images and videos from our extensive creative and editorial catalogs.
-- Get image and video metadata.
-- Download files using your Getty Images products (e.g., Editorial subscriptions, Easy Access, Thinkstock Subscriptions, and Image Packs).
-- Custom Request functionality that allows user to call any endpoint.
+## Introduction
+This SDK makes using the Getty Images [API](http://developers.gettyimages.com) easy. It handles credential management, makes HTTP requests and is written with a fluent style in mind. For more info about the API, see the [Documentation](https://developers.gettyimages.com/api/).
 
-## Requirements
+* Search for images and videos from our extensive creative and editorial catalogs.
+* Get image and video metadata.
+* Download files using your Getty Images products (e.g., Editorial subscriptions, Easy Access, Thinkstock Subscriptions, and Image Packs).
+* Custom Request functionality that allows user to call any endpoint.
 
-- Ruby version >= 2.4
-- [Bundler](http://bundler.io)
+## Help & Support
+
+* [Getty Images API](http://developers.gettyimages.com/)
+* [Contact Developer Support](mailto:developersupport@gettyimages.com)
+* [Issue Tracker](https://github.com/gettyimages/gettyimages-api_ruby/issues)
+
+## Getting started
+
+### Installing the ruby gem package
+
+-gettyimages-api gem is available [here](https://rubygems.org/gems/gettyimages-api)
+-To install, run the following command
+```sh
+gem install gettyimages-api
+```
 
 ## Examples
 
@@ -135,8 +148,13 @@ result = apiClient
 
 puts result["id"]
 ```
+## Running Source Code
+_Source code is only needed if you would like to contribute to the project. Otherwise, use the [ruby gem](https://rubygems.org/gems/gettyimages-api)
 
-## Unit Tests
+### Requirements
+
+- Ruby version >= 2.4
+- [Bundler](http://bundler.io)
 
 Install bundler and all dependencies
 
@@ -144,6 +162,8 @@ Install bundler and all dependencies
 gem install bundler
 bundle install
 ```
+
+### Unit Tests
 
 To execute all unit tests:
 
