@@ -19,8 +19,8 @@ This SDK makes using the Getty Images [API](http://developers.gettyimages.com) e
 
 ### Installing the ruby gem package
 
--gettyimages-api gem is available [here](https://rubygems.org/gems/gettyimages-api)
--To install, run the following command
+- gettyimages-api gem is available [here](https://rubygems.org/gems/gettyimages-api)
+- To install, run the following command
 ```sh
 gem install gettyimages-api
 ```
@@ -149,7 +149,7 @@ result = apiClient
 puts result["id"]
 ```
 ## Running Source Code
-_Source code is only needed if you would like to contribute to the project. Otherwise, use the [ruby gem](https://rubygems.org/gems/gettyimages-api)
+_Source code is only needed if you would like to contribute to the project. Otherwise, use the [ruby gem](https://rubygems.org/gems/gettyimages-api)_
 
 ### Requirements
 
