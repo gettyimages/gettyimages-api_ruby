@@ -13,17 +13,30 @@ class Credentials
 	attr_accessor :client_secret
 	attr_accessor :user_name
 	attr_accessor :password
+	attr_accessor :token_details
 
 	def initialize(args)
 		args.keys.each { |name| instance_variable_set "@" + name.to_s, args[name] }	
+		@token_details = nil
 	end
 
 	def get_uri(path)
 		return URI.parse "#{Api_Host::API_BASE_URL}#{path}"
 	end
 
+	def token_has_expired()
+		if (!token_details.nil?) && (@token_details.has_key?("sdk_expire_time"))
+			return @token_details["sdk_expire_time"] < (Time.now - 300)
+		end
+		return true
+	end
+
 	# Get Access Token Using OAuth
 	def get_access_token
+		
+		if (!token_has_expired())
+			return @token_details["access_token"]
+		end
 		
 		# Determine OAuth Flow
 		case @credential_type
@@ -62,6 +75,11 @@ class Credentials
 		if !res.is_a?(Net::HTTPSuccess)
 			raise res.code + ": " + result['error_description']	
 		end
+
+		@token_details = result
+		expiry = token_details["expires_in"].to_i
+		@token_details["sdk_expire_time"] = Time.now + expiry
+
 		return result['access_token']
 	end
 
