@@ -20,7 +20,7 @@ class HttpHelper
 		return URI.parse "#{Api_Host::API_BASE_URL}#{path}"
 	end
 
-	def get(endpoint_path, query_params)
+	def get(endpoint_path, query_params, headers = nil)
 		
 		uri = get_uri(endpoint_path)
 		#puts uri		
@@ -29,11 +29,11 @@ class HttpHelper
 		end
 		#puts "REQUEST URI: #{uri.request_uri}" 
 		req = Net::HTTP::Get.new uri.request_uri
-		return send uri, req, @api_key, @access_token
+		return send uri, req, @api_key, @access_token, headers
 
 	end
 
-	def post(endpoint_path, query_params, body)
+	def post(endpoint_path, query_params, body, headers = nil)
 
 		uri = get_uri(endpoint_path)
 		if !query_params.nil?
@@ -44,11 +44,11 @@ class HttpHelper
 			req["Content-Type"] = "application/json"
 			req.body = body.to_json
 		end
-		return send uri, req, @api_key, @access_token
+		return send uri, req, @api_key, @access_token, headers
 
 	end
 
-	def put(endpoint_path, query_params, body)
+	def put(endpoint_path, query_params, body, headers = nil)
 
 		uri = get_uri(endpoint_path)
 		if !query_params.nil?
@@ -59,18 +59,18 @@ class HttpHelper
 			req["Content-Type"] = "application/json"
 			req.body = body.to_json
 		end
-		return send uri, req, @api_key, @access_token
+		return send uri, req, @api_key, @access_token, headers
 
 	end
 
-	def delete(endpoint_path, query_params)
+	def delete(endpoint_path, query_params, headers = nil)
 
 		uri = get_uri(endpoint_path)
 		if !query_params.nil?
 			uri.query = URI.encode_www_form query_params
 		end	
 		req = Net::HTTP::Delete.new uri.request_uri
-		return send uri, req, @api_key, @access_token
+		return send uri, req, @api_key, @access_token, headers
 
 	end
 
@@ -93,7 +93,7 @@ class HttpHelper
   	end
 
 	private
-	def send(uri, request, api_key, bearer_token = "")
+	def send(uri, request, api_key, bearer_token = "", headers)
 
 		# define HTTPS connection
 		https = Net::HTTP.new(uri.host, uri.port)
@@ -101,6 +101,7 @@ class HttpHelper
 		https.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 		# define headers
+		request.initialize_http_header(headers)
 		request["User-Agent"] = "GettImagesApiSdk/#{GettyImagesApi::VERSION} (#{os} ; Ruby #{RUBY_VERSION})"
 		request["Api-Key"] = api_key
 		request["Authorization"] = "Bearer #{bearer_token}" unless bearer_token.empty?

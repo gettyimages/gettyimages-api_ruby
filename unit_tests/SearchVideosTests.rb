@@ -9,6 +9,18 @@ class SearchVideosTests < Test::Unit::TestCase
         .to_return(status: 200, body: '{"access_token": "client_credentials_access_token", "token_types": "Bearer", "expires_in": "1800"}')
     end
 
+    def test_search_videos_with_accept_language
+        stub_request(:get, "https://api.gettyimages.com/v3/search/videos").with(headers: {"Accept-Language" => "de"})
+            .to_return(body: '{ "message": "success" }')
+
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.search_videos()
+                            .with_accept_language("de")
+                            .execute()
+
+        assert_equal({"message" => "success"}, search_results.to_hash )
+    end
+
     def test_search_videos_with_age_of_people
         stub_request(:get, "https://api.gettyimages.com/v3/search/videos").with(query: {"age_of_people" => ["newborn", "adult", "child"].join(",")})
             .to_return(body: '{ "message": "success" }')

@@ -46,4 +46,17 @@ class VideosTests < Test::Unit::TestCase
         assert_equal({"message" => "success"}, search_results.to_hash )
     end
 
+    def test_videos_with_ids_with_accept_language
+        stub_request(:get, "https://api.gettyimages.com/v3/videos").with(headers: {"Accept-Language" => "de"}).with(query: {"ids" => ["123","333"].join(",")})
+            .to_return(body: '{ "message": "success" }')
+
+        apiClient 		= ApiClient.new("api key", "api secret")
+        search_results	= apiClient.videos()
+                            .with_ids(["123", "333"])
+                            .with_accept_language("de")
+                            .execute()
+
+        assert_equal({"message" => "success"}, search_results.to_hash )
+    end
+
 end

@@ -2,7 +2,7 @@ require_relative "../RequestBase.rb"
 
 class CustomRequest < RequestBase
 
-    attr_accessor :method, :body, :route
+    attr_accessor :method, :body, :route, :headers
     # @route = "/v3/"
 
     def initialize(api_key, access_token)
@@ -13,13 +13,13 @@ class CustomRequest < RequestBase
     def execute
         case @method
         when "GET"
-            return @http_helper.get(@route, @query_params)
+            return @http_helper.get(@route, @query_params, self.headers)
         when "POST"
-            return @http_helper.post(@route, @query_params, self.body)
+            return @http_helper.post(@route, @query_params, self.body, self.headers)
         when "PUT"
-            return @http_helper.put(@route, @query_params, self.body)
+            return @http_helper.put(@route, @query_params, self.body, self.headers)
         when "DELETE"
-            return @http_helper.delete(@route, @query_params)
+            return @http_helper.delete(@route, @query_params, self.headers)
         else
             raise "No appropriate HTTP method found for this request."
         end
@@ -57,6 +57,11 @@ class CustomRequest < RequestBase
 
     def with_body(body)	
         self.body = body
+        return self
+    end
+
+    def with_headers(headers)	
+        self.headers = headers
         return self
     end
 
