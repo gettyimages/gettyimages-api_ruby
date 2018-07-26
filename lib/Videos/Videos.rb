@@ -2,7 +2,7 @@ require_relative "../RequestBase.rb"
 
 class Videos < RequestBase
 
-    attr_accessor :asset_id
+    attr_accessor :asset_id, :accept_language
 
 	API_ROUTE = "/v3/videos" # mashery endpoint	
 	QUERY_PARAMS_NAMES = ["ids","fields"]
@@ -25,9 +25,15 @@ class Videos < RequestBase
 	end
 
 	public
+	def with_accept_language(language)
+		@accept_language = {"Accept-Language" => language}
+		return self
+	end
+
+	public
     def execute
         self.asset_id.nil? ? uri = API_ROUTE : uri = API_ROUTE + "/" + self.asset_id
-		return @http_helper.get(uri, @query_params)			
+		return @http_helper.get(uri, @query_params, @accept_language)			
 	end
 
 end

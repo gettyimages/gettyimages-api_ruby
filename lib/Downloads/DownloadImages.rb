@@ -2,7 +2,7 @@ require_relative "../RequestBase.rb"
 
 class DownloadImages < RequestBase
 
-    attr_accessor :asset_id
+    attr_accessor :asset_id, :accept_language
 
 	API_ROUTE = "/v3/downloads/images" # mashery endpoint	
 	QUERY_PARAMS_NAMES = ["file_type","height","product_id","product_type"]	
@@ -23,10 +23,16 @@ class DownloadImages < RequestBase
         return self
     end
 
+    public
+	def with_accept_language(language)
+		@accept_language = {"Accept-Language" => language}
+		return self
+	end
+
     def execute
         build_query_params("auto_download", "false")
         uri = API_ROUTE + "/" + self.asset_id
-		return @http_helper.post(uri, @query_params, nil)			
+		return @http_helper.post(uri, @query_params, nil, accept_language)			
 	end
 
 end

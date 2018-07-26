@@ -2,6 +2,8 @@ require_relative "../RequestBase.rb"
 
 class SearchVideosEditorial < RequestBase
 
+	attr_accessor :accept_language
+
 	API_ROUTE = "/v3/search/videos/editorial" # mashery endpoint	
     QUERY_PARAMS_NAMES = ["age_of_people","collection_codes","collections_filter_type","editorial_video_types","entity_uris","exclude_nudity","fields","format_available","frame_rates",
         "keyword_ids","page","page_size","phrase","product_types","sort_order","specific_people"]
@@ -24,8 +26,13 @@ class SearchVideosEditorial < RequestBase
     	end
   	end
 
+	def with_accept_language(language)
+		@accept_language = {"Accept-Language" => language}
+		return self
+	end
+
 	def execute
-		return @http_helper.get(API_ROUTE, @query_params)			
+		return @http_helper.get(API_ROUTE, @query_params, @accept_language)			
 	end
 
 end
