@@ -191,18 +191,6 @@ class SearchImagesTests < Test::Unit::TestCase
         assert_equal({"message" => "success"}, search_results.to_hash )
     end
 
-    def test_search_images_with_license_models
-        stub_request(:get, "https://api.gettyimages.com/v3/search/images").with(query: {"license_models" => ["rightsmanaged", "royaltyfree"].join(",")})
-            .to_return(body: '{ "message": "success" }')
-
-        apiClient 		= ApiClient.new("api key", "api secret")
-        search_results	= apiClient.search_images()
-                            .with_license_models(["rightsmanaged", "royaltyfree"])
-                            .execute()
-
-        assert_equal({"message" => "success"}, search_results.to_hash )
-    end
-
     def test_search_images_with_minimum_size
         stub_request(:get, "https://api.gettyimages.com/v3/search/images").with(query: {"minimum_size" => "small"})
             .to_return(body: '{ "message": "success" }')
