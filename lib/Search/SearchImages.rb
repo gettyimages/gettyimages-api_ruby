@@ -6,7 +6,7 @@ class SearchImages < RequestBase
 
 	API_ROUTE = "/v3/search/images" # mashery endpoint
 	QUERY_PARAMS_NAMES = ["age_of_people","artists","collection_codes","collections_filter_type","color","compositions","embed_content_only","ethnicity","event_ids","exclude_nudity","fields",
-		"file_types","graphical_styles","keyword_ids","license_models","minimum_size","number_of_people","orientations","page","page_size","phrase","prestige_content_only","product_types",
+		"file_types","graphical_styles","keyword_ids","minimum_size","number_of_people","orientations","page","page_size","phrase","prestige_content_only","product_types",
 		"sort_order","specific_people"]
 
 	QUERY_PARAMS_NAMES.each do |key|
