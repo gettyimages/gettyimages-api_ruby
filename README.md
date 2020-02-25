@@ -152,7 +152,7 @@ _Source code is only needed if you would like to contribute to the project. Othe
 
 ### Requirements
 
-- Ruby version >= 2.4
+- Ruby version >= 2.5
 - [Bundler](http://bundler.io)
 
 Install bundler and all dependencies

@@ -1,4 +1,8 @@
 language: ruby
+rvm:
+  - 2.5
+  - 2.6
+  - 2.7
 sudo: false
 script:
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ -n "$TRAVIS_TAG" ]; then PACKAGE_VERSION=$TRAVIS_TAG;
