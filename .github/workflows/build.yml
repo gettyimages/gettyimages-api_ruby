@@ -1,0 +1,35 @@
+name: Build
+
+on:
+  push:
+    branches: [ master, actions ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version: [ 2.5, 2.6, 2.7 ]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+
+      - name: 'Get Previous tag'
+        id: previoustag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
+
+      - name: Set version
+        run: |
+          sed -i -e "s/0.0.0/${{ steps.previoustag.outputs.tag }}/" lib/GettyImagesApi/version.rb
+          cat lib/GettyImagesApi/version.rb
+
+      - run: make build
