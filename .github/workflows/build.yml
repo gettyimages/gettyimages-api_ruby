@@ -27,7 +27,7 @@ jobs:
 
       - name: Set version
         run: |
-        sed -i -e "s/0.0.0/${{ steps.previoustag.outputs.tag }}/" lib/GettyImagesApi/version.rb
-        cat lib/GettyImagesApi/version.rb
+          sed -i -e "s/0.0.0/${{ steps.previoustag.outputs.tag }}/" lib/GettyImagesApi/version.rb
+          cat lib/GettyImagesApi/version.rb
 
       - run: make build
