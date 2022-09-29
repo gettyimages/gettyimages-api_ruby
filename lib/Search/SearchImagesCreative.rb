@@ -12,10 +12,10 @@ class SearchImagesCreative < RequestBase
 	end
 
 	QUERY_PARAM_NAMES.each do |key|
-    define_method :"with_#{key}" do |value = true| 
+		define_method :"with_#{key}" do |value = true| 
 			add_parameter(key, value)
-    		return self
-    	end
+			return self
+		end
 	end
 	  		  
 	def execute

@@ -8,7 +8,7 @@ class DownloadImages < RequestBase
 	QUERY_PARAM_NAMES = ["file_type","height","product_id","product_type"]	
 
 	QUERY_PARAM_NAMES.each do |key|
-    define_method :"with_#{key}" do |value = true| 
+        define_method :"with_#{key}" do |value = true| 
             if (!key.include? "id") && (value.is_a?(String))
                 value.downcase!
             end	
