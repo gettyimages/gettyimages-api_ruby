@@ -2,12 +2,12 @@ require_relative "../RequestBase.rb"
 
 class DownloadImages < RequestBase
 
-    attr_accessor :asset_id, :accept_language
+    attr_accessor :asset_id
 
-	API_ROUTE = "/v3/downloads/images" # mashery endpoint	
-	QUERY_PARAMS_NAMES = ["file_type","height","product_id","product_type"]	
+	API_ROUTE = "/v3/downloads/images"
+	QUERY_PARAM_NAMES = ["file_type","height","product_id","product_type"]	
 
-	QUERY_PARAMS_NAMES.each do |key|
+	QUERY_PARAM_NAMES.each do |key|
     define_method :"with_#{key}" do |value = true| 
             if (!key.include? "id") && (value.is_a?(String))
                 value.downcase!
@@ -23,16 +23,10 @@ class DownloadImages < RequestBase
         return self
     end
 
-    public
-	def with_accept_language(language)
-		@accept_language = {"Accept-Language" => language}
-		return self
-	end
-
     def execute
         build_query_params("auto_download", "false")
         uri = API_ROUTE + "/" + self.asset_id
-		return @http_helper.post(uri, @query_params, nil, accept_language)			
+		return @http_helper.post(uri, @query_params, nil, @headers)			
 	end
 
 end

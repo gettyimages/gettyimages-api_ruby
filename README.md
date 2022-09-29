@@ -40,7 +40,7 @@ api_secret = "API Secret"
 # create instance of the SDK
 apiClient = ApiClient.new(api_key, api_secret)
 result = apiClient
-    .search_images()
+    .search_images_creative()
     .with_phrase("gorilla")
     .with_fields(["artist", "id", "title"])
     .with_exclude_nudity("true")
@@ -107,6 +107,18 @@ result = apiClient
     .execute()
 
 puts result["uri"]
+```
+
+### Make a request using custom parameter and header
+
+```ruby
+apiClient = ApiClient.new(api_key, api_secret)
+result = apiClient
+    .search_images_creative()
+    .with_phrase("beach")
+    .with_custom_parameter("safe_search", "true")
+    .with_custom_header("gi-country-code", "CAN")
+    .execute()
 ```
 
 ### Use the custom request functionality for GET request with query parameters

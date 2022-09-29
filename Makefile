@@ -8,6 +8,8 @@ build:
 	bundle exec rake
 	gem build gettyimages-api.gemspec
 
+test:
+	rake
 
 # Run a Ruby container with the current directory mounted and as the
 # current user. This allows development without installing Ruby on your
