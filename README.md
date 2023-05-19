@@ -167,7 +167,7 @@ _Source code is only needed if you would like to contribute to the project. Othe
 
 ### Requirements
 
-- Ruby version >= 2.5
+- Ruby version >= 3.0
 - [Bundler](http://bundler.io)
 
 Install bundler and all dependencies

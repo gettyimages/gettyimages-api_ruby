@@ -21,7 +21,7 @@ class Credentials
 	end
 
 	def get_uri(path)
-		return URI.parse "#{Api_Host::API_BASE_URL}#{path}"
+		return URI.parse "#{Api_Host::AUTH_BASE_URL}#{path}"
 	end
 
 	def token_has_expired()
