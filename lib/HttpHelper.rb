@@ -7,6 +7,8 @@ require_relative 'GettyImagesApi/version'
 class Api_Host
 	API_HOST = "api.gettyimages.com"
 	API_BASE_URL = "https://#{API_HOST}"
+	AUTH_HOST = "authentication.gettyimages.com"
+	AUTH_BASE_URL = "https://#{AUTH_HOST}"
 end
 
 class HttpHelper

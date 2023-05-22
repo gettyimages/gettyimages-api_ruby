@@ -4,7 +4,7 @@ GID := $(shell id -g)
 
 build:
 	bundle config set --local path 'vendor/bundle'
-	bundle install --path vendor/bundle
+	bundle install 
 	bundle exec rake
 	gem build gettyimages-api.gemspec
 
