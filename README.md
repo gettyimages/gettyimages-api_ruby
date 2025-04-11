@@ -1,5 +1,9 @@
 # Getty Images API Ruby SDK
-[![Build Status](https://travis-ci.org/gettyimages/gettyimages-api_ruby.svg?branch=master)](https://travis-ci.org/gettyimages/gettyimages-api_ruby)  
+
+## This codebase has ben retired as of 2025-04-11
+
+_The project has been archived and no new releases will be made. That means no 
+new features, no security updates and no bug fixes._
 
 ## Introduction
 This SDK makes using the Getty Images [API](http://developers.gettyimages.com) easy. It handles credential management, makes HTTP requests and is written with a fluent style in mind. For more info about the API, see the [Documentation](https://developers.gettyimages.com/api/).
